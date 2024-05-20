@@ -23,4 +23,6 @@ jobs:
           git config --local user.name "GitHub Action"
           git add README.md
           git commit -m "Update README with GitHub stats"
-          git push
+          git push --set-upstream https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} HEAD:main
+
+          
