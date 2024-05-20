@@ -10,19 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.REPO_PERSONAL_ACCESS_TOKEN }}  # Use PAT for checkout to handle possible private submodules or other permissions
       - name: Generate README
         run: |
           echo '# My GitHub Stats' > README.md
           echo '![GitHub Stats](https://github-readme-stats.vercel.app/api?username=omarahmedx14&show_icons=true&count_private=true)' >> README.md
           echo '![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=omarahmedx14&layout=compact)' >> README.md
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Commit README
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add README.md
           git commit -m "Update README with GitHub stats"
-          git push --set-upstream https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} HEAD:main
+          git push --set-upstream https://${{ secrets.REPO_PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }} HEAD:main
+
+
 
           
