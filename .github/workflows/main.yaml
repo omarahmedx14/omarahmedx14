@@ -15,6 +15,7 @@ jobs:
       - name: Generate README
         run: |
           echo '# My GitHub Stats' > README.md
+          echo '![Banner](https://github.com/omarahmedx14/omarahmedx14/assets/38296077/69de8e3d-36fd-4ff1-846e-71254e19824b)' >> README.md
           echo '![GitHub Stats](https://github-readme-stats.vercel.app/api?username=omarahmedx14&show_icons=true&count_private=true)' >> README.md
           echo '![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=omarahmedx14&layout=compact)' >> README.md
       - name: Commit README
