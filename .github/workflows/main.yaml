@@ -16,6 +16,6 @@ jobs:
       - run: npm install -g github-readme-stats
       - name: Update README
         run: |
-          github-readme-stats --username yourGitHubUsername --token ${{ secrets.GH_TOKEN }} --count_private true --output README.md
+          github-readme-stats --username omarahmedx14 --token ${{ secrets.GH_TOKEN }} --count_private true --output README.md
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
