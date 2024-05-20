@@ -24,7 +24,3 @@ jobs:
           git add README.md
           git commit -m "Update README with GitHub stats"
           git push --set-upstream https://${{ secrets.REPO_PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }} HEAD:main
-
-
-
-          
