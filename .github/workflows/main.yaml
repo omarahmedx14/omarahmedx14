@@ -1,0 +1,21 @@
+name: Generate README stats
+
+on:
+  schedule:
+    - cron: '0 0 * * 4'  # Runs at 00:00 every Thursday
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install -g github-readme-stats
+      - name: Update README
+        run: |
+          github-readme-stats --username yourGitHubUsername --token ${{ secrets.GH_TOKEN }} --count_private true --output README.md
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
