@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.REPO_PERSONAL_ACCESS_TOKEN }}  # Use PAT for checkout to handle possible private submodules or other permissions
+          token: ${{ secrets.PAT_1 }}  # Use PAT for checkout to handle possible private submodules or other permissions
       - name: Generate README
         run: |
           echo '# My GitHub Stats' > README.md
@@ -24,4 +24,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add README.md
           git commit -m "Update README with GitHub stats"
-          git push --set-upstream https://${{ secrets.REPO_PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }} HEAD:main
+          git push --set-upstream https://${{ secrets.PAT_1 }}@github.com/${{ github.repository }} HEAD:main
